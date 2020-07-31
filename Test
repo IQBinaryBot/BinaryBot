@@ -1,0 +1,129 @@
+<xml xmlns="http://www.w3.org/1999/xhtml" collection="false">
+  <variables>
+    <variable type="" id="!^AbtpJJJwTVui^z[0^L">Counter</variable>
+    <variable type="" id="28uQm@g~.5XMzsfLQ6T/">Stake Amount</variable>
+  </variables>
+  <block type="trade" id="xgH69|xFn9=70w.*3Vo@" x="0" y="0">
+    <field name="MARKET_LIST">synthetic_index</field>
+    <field name="SUBMARKET_LIST">random_index</field>
+    <field name="SYMBOL_LIST">1HZ10V</field>
+    <field name="TRADETYPECAT_LIST">digits</field>
+    <field name="TRADETYPE_LIST">matchesdiffers</field>
+    <field name="TYPE_LIST">DIGITDIFF</field>
+    <field name="CANDLEINTERVAL_LIST">60</field>
+    <field name="TIME_MACHINE_ENABLED">FALSE</field>
+    <field name="RESTARTONERROR">TRUE</field>
+    <statement name="INITIALIZATION">
+      <block type="variables_set" id="4Ath+]m$9LdV/YQR%+s1">
+        <field name="VAR" id="!^AbtpJJJwTVui^z[0^L" variabletype="">Counter</field>
+        <value name="VALUE">
+          <block type="math_number" id="hlbYLdHB8!]3!=2CapVK">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="Slp?Jg{o!WIJ))cA*VTI">
+            <field name="VAR" id="28uQm@g~.5XMzsfLQ6T/" variabletype="">Stake Amount</field>
+            <value name="VALUE">
+              <block type="math_number" id=",U7a66^[L~#Y0+,JD.8N">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="after_purchase" id="D^Jz1^n=2vtZku1vBN@;" x="-3" y="330">
+    <statement name="AFTERPURCHASE_STACK">
+      <block type="controls_if" id="^]wQRt;:by-QW#(!1-[*">
+        <mutation elseif="1"></mutation>
+        <value name="IF0">
+          <block type="contract_check_result" id="q8Oc@qEjAaR6b9}na6]u">
+            <field name="CHECK_RESULT">win</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="variables_set" id="dK;xO_[1Q0xNLi=h},v8">
+            <field name="VAR" id="!^AbtpJJJwTVui^z[0^L" variabletype="">Counter</field>
+            <value name="VALUE">
+              <block type="math_number" id="Wpq*0KQE(}et0MyarGxQ">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="{wX{]Hz@K@V!?X6VuT@s">
+                <field name="VAR" id="28uQm@g~.5XMzsfLQ6T/" variabletype="">Stake Amount</field>
+                <value name="VALUE">
+                  <block type="math_number" id="Bg1P_zTG{Qx%)jd]ZmiB">
+                    <field name="NUM">10</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="contract_check_result" id="c0[?s3Jp{Mi}~Aq.?r2V">
+            <field name="CHECK_RESULT">loss</field>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="variables_set" id="NDQI0^l}v#7pPPhs0EU(">
+            <field name="VAR" id="!^AbtpJJJwTVui^z[0^L" variabletype="">Counter</field>
+            <value name="VALUE">
+              <block type="math_arithmetic" id="_`*_2[=FQ;p?T(`;!=.`">
+                <field name="OP">ADD</field>
+                <value name="A">
+                  <shadow type="math_number" id="LoQUJY51v.@*NXkBav;Z">
+                    <field name="NUM">1</field>
+                  </shadow>
+                  <block type="variables_get" id="kC]*yO(V_gD$pcl%fusI">
+                    <field name="VAR" id="!^AbtpJJJwTVui^z[0^L" variabletype="">Counter</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <shadow type="math_number" id="FS/QPp3SIi/Y0{u51,{5">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="~KU+$j10g#/FeFP3oPdw">
+                <value name="IF0">
+                  <block type="logic_compare" id="IAFTlT=$[*6J$s4GhSY6">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="$]XGJ+n;Z6m~=W%X,Dv(">
+                        <field name="VAR" id="!^AbtpJJJwTVui^z[0^L" variabletype="">Counter</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="!~aO(8I[E/*h/^4yFa1.">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="variables_set" id="G)jtD9`ea3v$RsUCh[rO">
+                    <field name="VAR" id="28uQm@g~.5XMzsfLQ6T/" variabletype="">Stake Amount</field>
+                    <value name="VALUE">
+                      <block type="balance" id="fx05.2Pp,1:~K+iA-_ZO">
+                        <field name="BALANCE_TYPE">NUM</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="trade_again" id="-EZ!^-8CdesMYZnq_1~^"></block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
